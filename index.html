@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Library
+        </div>
+        <div class="wrap">
+            <div class="main">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>title</th>
+                            <th>author</th>
+                            <th>pages</th>
+                            <th>status</th>
+                            <th>removal</th>
+                        </tr>
+                        <tr>
+                            <td>Murder on the Orient Express</td>
+                            <td>Agatha Christie</td>
+                            <td>245</td>
+                            <td>read</td>
+                            <td>delete</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <button>Delete All</button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+
+            <div class="side">
+                <div class="details">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Books</td>
+                                <td class="total-books">1</td>
+                            </tr>
+                            <tr>
+                                <td>Read Books</td>
+                                <td class="read-books">1</td>
+                            </tr>
+                            <tr>
+                                <td>Unread Books</td>
+                                <td class="unread-books">0</td>
+                            </tr>
+                            <tr>
+                                <td>Read Pages</td>
+                                <td class="read-pages">245</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="page-mask"></div>
+                <div class="add-book">
+                    <button>Add New Book</button>
+                    <div class="window">
+                        <h2>Add A New Book</h2>
+                        <div class="form">
+                            <div>
+                                <input type="text" id="title" name="title" required>
+                                <label for="title" class="floating-label">Title</label>
+                            </div>
+                            <div>
+                                <input type="text" id="author" name="author" required>
+                                <label for="author" class="floating-label">Author</label>
+                            </div>
+                            <div>
+                                <input type="number" id="pages" name="pages" required>
+                                <label for="pages" class="floating-label">Total Pages</label>
+                            </div>
+                            <div class="check">
+                                <input type="checkbox" id="read" name="read">
+                                <label for="read">Already read</label>
+                            </div>
+                        </div>
+                        <div class="btns">
+                            <button>Cancel</button>
+                            <button type="submit">Add New Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
