@@ -16,7 +16,7 @@
         <div class="wrap">
             <div class="main">
                 <table>
-                    <tbody>
+                    <thead>
                         <tr>
                             <th>title</th>
                             <th>author</th>
@@ -24,18 +24,20 @@
                             <th>status</th>
                             <th>removal</th>
                         </tr>
-                        <tr>
+                    </thead>
+                    <tbody id="book-list">
+                        <!-- <tr>
                             <td>Murder on the Orient Express</td>
                             <td>Agatha Christie</td>
                             <td>245</td>
-                            <td>read</td>
-                            <td>delete</td>
-                        </tr>
+                            <td class="status material-icons read unread"></td>
+                            <td class="material delete"></td>
+                        </tr> -->
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="5">
-                                <button>Delete All</button>
+                                <button id="delete-all">Delete All</button>
                             </td>
                         </tr>
                     </tfoot>
@@ -54,52 +56,55 @@
                         <tbody>
                             <tr>
                                 <td>Total Books</td>
-                                <td class="total-books">1</td>
+                                <td class="total-books"></td>
                             </tr>
                             <tr>
                                 <td>Read Books</td>
-                                <td class="read-books">1</td>
+                                <td class="read-books"></td>
                             </tr>
                             <tr>
                                 <td>Unread Books</td>
-                                <td class="unread-books">0</td>
+                                <td class="unread-books"></td>
                             </tr>
                             <tr>
                                 <td>Read Pages</td>
-                                <td class="read-pages">245</td>
+                                <td class="read-pages"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="page-mask"></div>
                 <div class="add-book">
-                    <button>Add New Book</button>
+                    <button class="add">Add New Book</button>
+                    <div class="page"></div>
                     <div class="window">
                         <h2>Add A New Book</h2>
                         <div class="form">
-                            <div>
-                                <input type="text" id="title" name="title" required>
-                                <label for="title" class="floating-label">Title</label>
+                            <form action="#">
+                                <div>
+                                    <input type="text" id="title" name="title" required>
+                                    <label for="title" class="floating-label">Title</label>
+                                </div>
+                                <div>
+                                    <input type="text" id="author" name="author" required>
+                                    <label for="author" class="floating-label">Author</label>
+                                </div>
+                                <div>
+                                    <input type="number" id="pages" name="pages" required>
+                                    <label for="pages" class="floating-label">Total Pages</label>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox" id="read" name="read">
+                                    <label for="read">Already read</label>
+                                </div>
                             </div>
-                            <div>
-                                <input type="text" id="author" name="author" required>
-                                <label for="author" class="floating-label">Author</label>
+                            <div class="btns">
+                                <button class="cancel">Cancel</button>
+                                <button class="submit" type="submit">Add New Book</button>
                             </div>
-                            <div>
-                                <input type="number" id="pages" name="pages" required>
-                                <label for="pages" class="floating-label">Total Pages</label>
-                            </div>
-                            <div class="check">
-                                <input type="checkbox" id="read" name="read">
-                                <label for="read">Already read</label>
-                            </div>
-                        </div>
-                        <div class="btns">
-                            <button>Cancel</button>
-                            <button type="submit">Add New Book</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
+                <div class="create">Created by Olguta</div>
             </div>
         </div>
     </div>

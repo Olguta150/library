@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,15 +10,18 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Acme', sans-serif;
+    background: rgb(248, 230, 230);
 }
 
 .container {
     display: grid;
     grid-template-rows: 90px 1fr;
-    height: 100vh;
+    height: 100%;
 }
 
 .header {
+    /* position: fixed; */
     grid-row: 1;
     width: 100%;
     height: 90px;
@@ -26,6 +31,7 @@ body {
     font-family: 'Acme', sans-serif;
     text-align: center;
     padding: 15px;
+    z-index: 5;
 }
 
 .wrap {
@@ -36,16 +42,12 @@ body {
     height: calc(100vh-90px);
 }
 
-.main {
-    background: rgb(248, 230, 230);
-}
-
 .main table {
     position: relative;
     table-layout: fixed;
     border-collapse: collapse;
     border: 1px solid #000;
-    margin: 100px auto 0 auto;
+    margin: 100px auto 200px auto;
 }
 
 .main table th {
@@ -82,8 +84,44 @@ body {
 
 .main table tr td {
     padding: 10px 0 10px 5px;
-    font-size: 17px;
+    font-size: 18.5px;
     text-align: center;
+}
+
+.main .material-icons::before{
+    font-family: 'Material Icons';
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+}
+
+.main .read::before {
+    content: '\e86c';
+    color: rgb(3, 189, 3);
+    font-size: 20px;
+    margin-left: 60px;
+}
+
+.main .unread::before {
+    content: '\e5c9';
+    color: rgb(189, 3, 3);
+    font-size: 20px;
+    margin-left: 60px;
+}
+
+.main .material::before{
+    font-family: 'Material Icons';
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+}
+
+.main .delete::before {
+    content: '\e872';
+    color: rgb(51, 51, 51);
+    font-size: 20px;
 }
 
 .main table button {
@@ -97,17 +135,23 @@ body {
     bottom: -50px;
     border: 1.5px solid rgb(63, 8, 1);
     border-radius: 3px;
-    cursor: pointer;
+    background: rgb(248, 230, 230);
 }
 
 .main table button:hover {
-    background: rgba(243, 220, 217, 0.534);
-    box-shadow: 1px 1px 5px 0px rgb(177, 112, 104, 0.3);
+    border: 2px solid rgb(110, 62, 54);
+    background: #fff;
 }
 
 .side {
+    top: 90px;
+    right: 0;
+    bottom: 0;
+    width: 370px;
+    height: calc(100vh - 90px);
     display: grid;
-    grid-template-rows: 1.5fr 1fr;
+    justify-items: center;
+    grid-template-rows: 1.5fr 1fr 0.1fr;
     background: rgb(187, 120, 111);
 }
 
@@ -124,13 +168,19 @@ body {
     padding: 10px;
     font-family: 'Acme', sans-serif;
     letter-spacing: 2px;
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 300;
 }
 
 .side table td {
     font-size: 18px;
     padding: 10px;
+}
+
+.side .add-book .add {
+    padding: 15px 30px;
+    font-family: 'Acme', sans-serif;
+    font-size: 17px;
 }
 
 .window {
@@ -142,7 +192,7 @@ body {
     background:rgb(129, 76, 68);
     border: 2px solid rgb(110, 62, 54);
     border-radius: 15px;
-    opacity: 1;
+    z-index: 11;
 }
 
 h2 {
@@ -207,23 +257,53 @@ input:not(:focus):valid ~ .floating-label {
 
 .window .check input[type="checkbox"]::before {
     content: '';
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
     transform: scale(0);
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-    background-color:rgb(63, 8, 1);
+    background-color:rgba(0, 0, 0);
     transition: 0.5s transform ease-in-out;
 }
 
-.window .check input[type="checkbox"]::after {
+.window .check input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
 
-.page-mask {
+.btns {
+    display: flex;
+    gap: 50px;
+    padding-top: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.window button {
+    width: 135px;
+    height: 45px;
+    font-family: 'Acme', sans-serif;
+    font-size: 17px;
+    border: none;
+    border-radius: 2px;
+    background: rgb(248, 230, 230);
+    cursor: pointer;
+}
+
+.window button:hover {
+    border: 2px solid rgb(110, 62, 54);
+    outline: 2px ridge rgb(110, 62, 54);
+    outline-offset: 2px;
+}
+
+.page {
     background: rgba(0, 0, 0, 0.6);
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 10;
+}
+
+.create {
+    margin-bottom: 30px;
 }
