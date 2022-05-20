@@ -13,11 +13,13 @@ const tbody = document.querySelector('tbody');
 
 let myLibrary = [];
 
-function Book(title, author, pages, status) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.status = status
+class Book{
+    constructor(title, author, pages, status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+    }
 }
 
 function addBookToLibrary() {
@@ -79,6 +81,7 @@ function clearAll() {
         myLibrary = [];
         tbody.innerHTML = '';
         localStorage.removeItem('myLibrary');
+        bookDetails();
     })
 }
 clearAll();
